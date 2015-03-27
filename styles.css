@@ -8,6 +8,14 @@ body {
   background:#E2E9EB;
 }
 
+body > div {
+  max-width: 800px;
+}
+
+button:active, button:focus {
+  outline: none;
+}
+
 h1 {
   font-weight: lighter;
   font-size: 48px;
@@ -16,14 +24,16 @@ h1 {
 
 h3 {
   margin-top: 0;
-  padding: 5px;
+  padding: 5px 15px;
   border:1px solid transparent;
   font-size: 28px;
   color:#999;
+  width:calc(100% - 65px);
+  border-radius: 5px;
 }
 
 h3:hover, h3:focus {
-  border-color:#999;
+  border-color:#CCC;
   background: white;
 }
 
@@ -32,7 +42,7 @@ h3 input {
   border: none;
   font-size: 28px;
   font-weight: bold;
-  width:calc(100% - 50px);
+  width:calc(100% - 30px);
 }
 
 ul {
@@ -51,14 +61,22 @@ ul {
 }
 
 .header-list > li {
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
-  margin-bottom: 15px;
+}
+
+.header-list > li + li {
+  border-top: 1px solid #EEE;
+}
+
+.header-rule {
+  position: relative;
 }
 
 .header-rule input {
   padding: 5px;
   margin:0 15px;
+  width:200px;
 }
 
 .header-rule button {
@@ -75,8 +93,8 @@ ul {
   color: #850000;
 }
 
-.header-rule input:first-child {
-  margin-left: 0;
+.header-rule input:first-of-type {
+  margin-left: 40px;
 }
 
 .rule-list + button, .header-list + button {
@@ -103,10 +121,42 @@ ul {
 .header-list + button {
   font-size:14px;
   padding: 10px;
-  background: #EDDCB2;
+  background: #EBE9E2;
   color: #80734B;
+  margin-top: 40px;
 }
 
 .header-list + button:hover, .header-list + button:focus {
-  background: #FBD471;
+  background: #E8D7AA;
+}
+
+button.trash {
+  font-size: 24px;
+  font-weight: lighter;
+  background:none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  padding:0;
+  margin:0;
+  color: #CCC;
+}
+
+button.trash:hover, button.trash:focus {
+  color:#000;
+}
+
+.rule {
+  position: relative;
+}
+
+.rule > .trash {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.header-rule > .trash {
+  position: absolute;
+  top: -3px;
 }

@@ -6,6 +6,7 @@ export default React.createClass({
       <div>
         <ul className="header-list">
           <li><HeaderRule /></li>
+          <li><HeaderRule /></li>
         </ul>
         <button>Add Another Header</button>
       </div>

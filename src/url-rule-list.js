@@ -6,6 +6,7 @@ export default React.createClass({
       <div>
         <ul className="rule-list">
           <li><URLRule /></li>
+          <li><URLRule /></li>
         </ul>
         <button>Add Another Rule</button>
       </div>
