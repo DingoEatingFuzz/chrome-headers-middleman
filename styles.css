@@ -1,0 +1,112 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0 30px;
+  background:#E2E9EB;
+}
+
+h1 {
+  font-weight: lighter;
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  margin-top: 0;
+  padding: 5px;
+  border:1px solid transparent;
+  font-size: 28px;
+  color:#999;
+}
+
+h3:hover, h3:focus {
+  border-color:#999;
+  background: white;
+}
+
+h3 input {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  width:calc(100% - 50px);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rule-list > li {
+  padding: 15px;
+  margin: 0;
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 5px;
+  box-shadow:0 3px 15px -10px #000;
+}
+
+.header-list > li {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.header-rule input {
+  padding: 5px;
+  margin:0 15px;
+}
+
+.header-rule button {
+  padding: 8px 15px;
+  background: #E9E9E9;
+  border-radius: 5px;
+  border:none;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.header-rule button.active {
+  background: #EB9B9B;
+  color: #850000;
+}
+
+.header-rule input:first-child {
+  margin-left: 0;
+}
+
+.rule-list + button, .header-list + button {
+  display: block;
+  margin: 0;
+  width: 100%;
+  border: none;
+  font-size:16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:background 0.3s ease-in-out;
+}
+
+.rule-list + button {
+  padding: 20px;
+  background: #34A28B;
+  color:white;
+}
+
+.rule-list + button:hover, .rule-list + button:focus {
+  background: #2ECDAB;
+}
+
+.header-list + button {
+  font-size:14px;
+  padding: 10px;
+  background: #EDDCB2;
+  color: #80734B;
+}
+
+.header-list + button:hover, .header-list + button:focus {
+  background: #FBD471;
+}
