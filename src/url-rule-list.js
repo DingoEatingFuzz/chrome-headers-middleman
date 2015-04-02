@@ -18,7 +18,7 @@ export default React.createClass({
   },
 
   remove(rule) {
-    this.props.onRemoveRule(rule)
+    this.props.onRemovedRule(rule)
   },
 
   render() {
