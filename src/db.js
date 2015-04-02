@@ -31,6 +31,7 @@ export default class DB {
   }
 
   set(key, value, cb) {
+    console.log('setting', arguments)
     if (!this.data) throw "Database not ready!"
 
     if (typeof key === 'object') {
