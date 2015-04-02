@@ -21,6 +21,12 @@ export default React.createClass({
     this.props.onUpdatedHeader(header)
   },
 
+  addLabel() {
+    return this.props.rule.headers.length
+      ? 'Add Another Header'
+      : 'Add a Header'
+  },
+
   render() {
     var rules = this.props.rule.headers.map(header => (
       <li><HeaderRule header={header} onRemove={this.remove} onChange={this.change} /></li>
@@ -30,7 +36,7 @@ export default React.createClass({
         <ul className="header-list">
           {rules}
         </ul>
-        <button onClick={this.add}>Add Another Header</button>
+        <button onClick={this.add}>{this.addLabel()}</button>
       </div>
     )
   }

@@ -21,6 +21,12 @@ export default React.createClass({
     this.props.onRemovedRule(rule)
   },
 
+  addLabel() {
+    return this.props.rules.length
+      ? 'Add Another Rule'
+      : 'Add a Rule'
+  },
+
   render() {
     var rules = this.props.rules.map(rule => (
       <li><URLRule rule={rule} onChange={this.update} onRemove={this.remove} /></li>
@@ -32,7 +38,7 @@ export default React.createClass({
         <ul className="rule-list">
           {rules}
         </ul>
-        <button onClick={this.add}>Add Another Rule</button>
+        <button onClick={this.add}>{this.addLabel()}</button>
       </div>
     )
   }
