@@ -1,3 +1,6 @@
+// For testing
+typeof require === 'function' && (chrome = require('./tests/chrome-mock'))
+
 var Middleman = {
   rules: [],
   transformer: function(details) {
@@ -48,7 +51,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 
 function findIndexBy(arr, prop, val) {
   for (var i = 0, len = arr.length; i < len; i++) {
-    if (arr[prop] === val) return i
+    if (arr[i][prop] === val) return i
   }
 }
 
@@ -64,3 +67,6 @@ function refresh() {
     Middleman.rules = d.rules
   })
 }
+
+// For testing
+typeof module === 'object' && (module.exports = Middleman)
