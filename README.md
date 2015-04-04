@@ -1,5 +1,5 @@
 # Headers Middleman
-![Travis CI](https://travis-ci.org/DingoEatingFuzz/chrome-headers-middleman.svg?branch=master)
+[![Travis CI](https://travis-ci.org/DingoEatingFuzz/chrome-headers-middleman.svg?branch=master)](https://travis-ci.org/DingoEatingFuzz/chrome-headers-middleman)
 
 A Chrome extension for manipulating headers based on URL pattern matching
 
