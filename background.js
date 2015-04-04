@@ -1,4 +1,39 @@
-var rules = []
+var Middleman = {
+  rules: [],
+  transformer: function(details) {
+    var rules = Middleman.rules
+    if (details.type === 'main_frame') {
+      rules.forEach(function(rule) {
+        rule.pattern.test(details.url) && Middleman.transform(details.requestHeaders, rule.headers)
+      })
+    }
+    return { requestHeaders: details.requestHeaders }
+  },
+  transform: function(oldHeaders, newHeaders) {
+    newHeaders.forEach(function(header) {
+      if (header.value === null) {
+        // remove the header
+        var idx = findIndexBy(oldHeaders, 'name', header.name)
+        if (idx !== undefined) {
+          oldHeaders.splice(idx, 1)
+        }
+      } else {
+        var requestHeader = findBy(oldHeaders, 'name', header.name)
+        if (requestHeader) {
+          // modify the header
+          requestHeader.value = header.value
+        } else {
+          // add the header
+          oldHeaders.push({
+            name: header.name,
+            value: header.value
+          })
+        }
+      }
+    })
+  }
+}
+
 refresh()
 
 chrome.storage.onChanged.addListener(function() {
@@ -6,36 +41,26 @@ chrome.storage.onChanged.addListener(function() {
 })
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  function(details) {
-    if (details.type === 'main_frame') {
-      rules.forEach(function(rule) {
-        if (new RegExp(rule.pattern).test(details.url)) {
-          rule.headers.forEach(function(header) {
-            if (header.value === null) {
-              // delete
-            } else {
-              // try to find
-              // else push
-              details.requestHeaders.push({
-                name: header.name,
-                value: header.value
-              })
-            }
-          })
-        }
-      });
-    }
-    return { requestHeaders: details.requestHeaders }
-  },
-  {
-    urls: [ '<all_urls>' ]
-  },
+  Middleman.transformer,
+  { urls: [ '<all_urls>' ] },
   [ 'blocking', 'requestHeaders' ]
 )
 
+function findIndexBy(arr, prop, val) {
+  for (var i = 0, len = arr.length; i < len; i++) {
+    if (arr[prop] === val) return i
+  }
+}
+
+function findBy(arr, prop, val) {
+  return arr[findIndexBy(arr, prop, val)]
+}
+
 function refresh() {
   chrome.storage.sync.get(null, function(d) {
-    console.log('updating!', d)
-    rules = d.rules
+    d.rules && d.rules.forEach(function(rule) {
+      rule.pattern = new RegExp(rule.pattern)
+    })
+    Middleman.rules = d.rules
   })
 }
