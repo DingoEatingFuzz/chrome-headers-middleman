@@ -3,7 +3,7 @@
   "description": "Add, remove, or modify HTTP Headers for any request based on a regular expression",
 
   "manifest_version": 2,
-  "version": "1.1",
+  "version": "1.2",
 
   "icons": {
     "128": "images/icon/icon-128.png"

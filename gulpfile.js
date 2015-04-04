@@ -36,7 +36,7 @@ gulp.task('watch', [ 'default' ], function() {
 })
 
 gulp.task('publish', [ 'static', 'productionScripts' ], function() {
-  exec('zip headers-middleman.zip dist/*', function(err) {
+  exec('zip -r headers-middleman.zip dist', function(err) {
     if (err !== null) {
       throw err;
     }
