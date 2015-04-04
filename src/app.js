@@ -1,3 +1,4 @@
+import React from 'react'
 import URLRuleList from './url-rule-list'
 import DB from './db'
 

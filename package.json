@@ -4,8 +4,8 @@
   "description": "Add, remove, or modify HTTP Headers for any request based on a regular expression",
   "main": "manifest.json",
   "scripts": {
-    "start": "npm i && bower i && gulp watch",
-    "build": "npm i && bower i && gulp",
+    "start": "npm i && gulp watch",
+    "build": "npm i && gulp",
     "test": "mocha tests"
   },
   "author": "",
@@ -21,5 +21,8 @@
     "gulp-sourcemaps": "^1.5.1",
     "mocha": "^2.2.1",
     "through2": "^0.6.3"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
   }
 }

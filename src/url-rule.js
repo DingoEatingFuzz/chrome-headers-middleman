@@ -1,3 +1,4 @@
+import React from 'react'
 import HeaderRuleList from './header-rule-list'
 
 export default React.createClass({

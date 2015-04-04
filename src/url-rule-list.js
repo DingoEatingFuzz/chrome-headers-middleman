@@ -1,3 +1,4 @@
+import React from 'react'
 import URLRule from './url-rule'
 
 export default React.createClass({
